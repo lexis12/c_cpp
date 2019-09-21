@@ -141,12 +141,19 @@ void swap (int *a, int *b){
             int tpm_arr [last+1];
             int left = 0;
             int right = last;
+            int mid = (right -left) / 2;
 
             do {
 
-               //while (*(arr+left)<);
+               while (arr[left] < arr[mid])
+                   ++left;
+               while  (arr[right] > arr[mid])
+                   --right;
+               if (left < right){
+                    swap(arr[left], arr[right]);
+               }
 
-            }while (1);
+            }while (left < right);
          }
 
     }
