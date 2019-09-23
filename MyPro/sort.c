@@ -7,7 +7,7 @@
 
 int count =0;
 
-void swap (int *a, int *b){
+    void swap (int *a, int *b){
         int tmp;
         tmp = *a;
         *a = *b;
@@ -28,7 +28,6 @@ void swap (int *a, int *b){
     }
 
     void bubble_sort (int *arr, int arr_len){
-        int tmp;
         int chk;
         for (int i = 0; i < arr_len; ++i) {
             chk = 0;
@@ -80,7 +79,7 @@ void swap (int *a, int *b){
             int aix = 0;
             int lix = 0;
             int rix = l_size;
-            int *tmp_arr = malloc(arr_len * sizeof(*tmp_arr));
+            int *tmp_arr = (int*) malloc(arr_len * sizeof(*tmp_arr));
 
             while (lix < l_size && rix < arr_len) {
                 if (*(arr + rix) > *(arr + lix))
@@ -138,7 +137,6 @@ void swap (int *a, int *b){
 
 
         if (first < last){
-            int tpm_arr [last+1];
             int left = 0;
             int right = last;
             int mid = (right -left) / 2;
@@ -150,7 +148,7 @@ void swap (int *a, int *b){
                while  (arr[right] > arr[mid])
                    --right;
                if (left < right){
-                    swap(arr[left], arr[right]);
+                    swap(arr+left, arr+right);
                }
 
             }while (left < right);
