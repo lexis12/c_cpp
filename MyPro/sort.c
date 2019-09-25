@@ -104,55 +104,36 @@ int count =0;
 
     }
 
-    void quick_sort (int *arr, int first ,int last){
 
-        if (first < last ) {
+    void quick_sort_imp (int *arr, int b , int e){
 
-            int left = 0;
-            int right = last;
-            int mid = (left + right) / 2;
-            int mm = *(arr+mid);
+        int left = b;
+        int right = e;
+        int mid =  arr[ (left + right) / 2];
 
-            do {
-                while (*(arr + left) < mm)
+        while (left <= right) {
+
+            while (arr [left] < mid)
                     ++left;
-                while (*(arr + right) > mm)
+            while (arr[right] > mid)
                     --right;
-                if (left < right) {
-                    swap(arr + left, arr + right);
-                    ++left;
-                    ++right;
-                }
-                print_arr(arr, last+1);
-            } while (left <= right);
 
-            printf ("new loop\n");
-            quick_sort(arr, first, right);
-            quick_sort(arr, left, last);
+            if (left <= right) {
+                swap(arr+left, arr +right);
+                ++left;
+                --right;
+            }
+
         }
+
+        if (b < right)
+            quick_sort_imp(arr, b, right);
+        if (e > left)
+            quick_sort_imp(arr, left, e);
     }
 
-
-    void qs (int *arr, int first, int last){
-
-
-        if (first < last){
-            int left = 0;
-            int right = last;
-            int mid = (right -left) / 2;
-
-            do {
-
-               while (arr[left] < arr[mid])
-                   ++left;
-               while  (arr[right] > arr[mid])
-                   --right;
-               if (left < right){
-                    swap(arr+left, arr+right);
-               }
-
-            }while (left < right);
-         }
-
+    void quick_sort (int* arr,int arr_len){
+        if (1 >= arr_len)
+            return;
+        quick_sort_imp (arr,0, arr_len-1);
     }
-

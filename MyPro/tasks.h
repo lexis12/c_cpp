@@ -8,3 +8,4 @@
 #endif //MYPRO_TASKS_H
 
 void resheto_eratosfena ();
+void my_puts(char* string);

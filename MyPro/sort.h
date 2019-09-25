@@ -15,5 +15,4 @@ void bubble_sort (int *arr, int arr_len);
 void insert_sort (int *arr, int arr_len);
 void select_sort (int *arr, int arr_len);
 void merge_sort (int *arr,int arr_len);
-void quick_sort (int *arr, int first, int last);
-void qs (int *arr, int first, int last);
+void quick_sort (int *arr, int arr_len);

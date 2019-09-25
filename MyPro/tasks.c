@@ -60,3 +60,53 @@ void resheto_eratosfena(){
         free(bs);
 
     }
+
+    void my_puts(char* string){
+
+        int i = 0;
+        while( string[i] != '\0'){
+
+            putchar(string[i]);
+            ++i;
+        }
+        putchar('\n');
+    }
+
+
+//DIR *dir = (opendir("/home/alex"));
+//struct dirent *ent;
+
+//    while ((ent = readdir(dir)) != NULL) {
+//      if ((int) (ent->d_name[0]) != 46)
+//       my_puts(ent->d_name);
+//     printf( "type=%c, name: %s\n",ent->d_type,ent->d_name);
+//  }
+
+
+/*  char* text = "Hello World\n";
+  FILE * file_w = fopen("/home/alex/test.txt", "w");
+  if (NULL == file_w) {
+      printf("can't open file_w ");
+      exit(EXIT_FAILURE);
+  }
+  else {
+      fputs(text, file_w);
+      fclose(file_w);
+  }
+
+  char str [1000];
+  FILE * file_w = fopen("/home/alex/test2.txt","w+");
+  FILE * file_r = fopen("/home/alex/test.txt", "r");
+  if (NULL==file_w) exit(EXIT_FAILURE);
+  if (NULL==file_r) exit(EXIT_FAILURE);
+
+  while (fgets(str,1000,file_r))
+      fprintf(file_w,str,"%s");
+
+  //fclose(file_r);
+  //fclose(file_w);
+
+  fseek(file_w,0,SEEK_SET);
+  while (fgets(str,1000,file_w))
+      fputs(str,stdout);
+*/
