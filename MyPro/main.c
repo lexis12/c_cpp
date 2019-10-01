@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <sys/stat.h>
+#include "fs.h"
 #define M 1000000
 #define K 1000
 
@@ -24,9 +25,9 @@ int main() {
     int arr_len = M;
 
     // Malloc array
-    int *arr = (int*) malloc (sizeof(*arr) * arr_len);
+    //int *arr = (int*) malloc (sizeof(*arr) * arr_len);
     // random int to array
-    rand_arr (arr,arr_len,100);
+    //rand_arr (arr,arr_len,100);
 
     //print default array
     //print_arr (arr,arr_len);
@@ -51,7 +52,7 @@ int main() {
 
     // time of 1000 items ~145/10^-9
     // time of 10^6 items ~200/10^-6
-    quick_sort(arr,arr_len);
+    //quick_sort(arr,arr_len);
 
     // time of 10^6 items ~210/10^-6
     //qsort(arr,arr_len, sizeof(*arr),comp);
@@ -59,11 +60,15 @@ int main() {
     //time sort stop
     t_sort2 = clock();
 
+    //struct_print();
+
+    listdir("/home/alex/");
+
     //print sort array
     //print_arr (arr,arr_len);
 
     // free array
-    free (arr);
+    //free (arr);
     // time check
     t_stop = clock();
     printf("Sort_time is %lf\n", (double)(t_sort2 - t_sort1)/CLOCKS_PER_SEC);

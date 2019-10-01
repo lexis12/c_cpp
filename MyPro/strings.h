@@ -6,3 +6,12 @@
 #define MYPRO_STRINGS_H
 
 #endif //MYPRO_STRINGS_H
+
+
+typedef struct string {
+    int count;
+    char *text;
+}String;
+
+int str_add (String *str, char *add);
+int str_clear (String *str);

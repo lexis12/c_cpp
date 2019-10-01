@@ -6,3 +6,5 @@
 #define MYPRO_FS_H
 
 #endif //MYPRO_FS_H
+
+void listdir (char* path);

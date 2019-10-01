@@ -19,14 +19,17 @@ void resheto_eratosfena(){
 
 }
 
-    void stucture (){
+
+
+
+    void struct_print (){
 
         char c;
         typedef struct data {
             int index;
             char name [20];
             char surname [20];
-            int age;
+            int age ;
         }data;
         typedef struct dt{
             int cur_idx;
@@ -34,29 +37,53 @@ void resheto_eratosfena(){
         }dt;
 
         dt *bs = malloc(10* sizeof(struct dt));
+        if (!bs) return;
+        char* fname = "test.txt";
+        char  buf [3];
+        char * buf2;
+        FILE *f = fopen(fname,"r");
+        if (!f) {
+            printf("file %s not found\n",fname);
+            return;
+        }
+
         bs->cur_idx=0;
 
-        do{
+        while (!feof(f)) {
+            fscanf(f, "%s", bs[bs->cur_idx].data.name);
+            fscanf(f, "%s", bs[bs->cur_idx].data.surname);
+            fscanf(f, "%s", buf);
+            bs[bs->cur_idx].data.age = (int) strtol(buf,&buf2,10);
+
+
+            ++bs->cur_idx;
+        }
+
+        /*do{
             printf("Input Name: ");
-            scanf("%s",(bs+bs->cur_idx)->data.name);
+            scanf("%s", bs[bs->cur_idx].data.name);
             printf("Input SurName: ");
-            scanf("%s",(bs+bs->cur_idx)->data.surname);
+            scanf("%s", bs[bs->cur_idx].data.surname);
             printf("Age: ");
-            scanf("%d",&(bs+bs->cur_idx)->data.age);
+            scanf("%d", &bs[bs->cur_idx].data.age);
             bs->data.index = bs->cur_idx;
 
             ++bs->cur_idx;
+
             printf("Continue ? ");
             scanf(" %c", &c);
+
         }while (c == 'y');
-
-        int key =0;
-        printf("Input index for print (current max-%d):",bs->cur_idx -1);
-        scanf("%d",&key);
-        printf("Name: %s\n",(bs+key)->data.name);
-        printf("Surname: %s\n",(bs+key)->data.surname);
-        printf("Age: %d", (bs+key)->data.age);
-
+*/
+        //int key =0;
+        //printf("Input index for print (current max- %d):",bs->cur_idx -1);
+        //scanf("%d",&key);
+        printf("%d\n",bs->cur_idx);
+        for (int key = 0; key < bs->cur_idx-1; ++key) {
+            printf("Name: %s\n", bs[key].data.name);
+            printf("Surname: %s\n", bs[key].data.surname);
+            printf("Age: %d\n", bs[key].data.age);
+        }
         free(bs);
 
     }

@@ -9,3 +9,4 @@
 
 void resheto_eratosfena ();
 void my_puts(char* string);
+void struct_print();
