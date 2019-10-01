@@ -1,0 +1,9 @@
+Alex
+A
+30
+Bob
+B
+25
+Cat
+C
+20
